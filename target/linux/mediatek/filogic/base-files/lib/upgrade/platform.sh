@@ -400,7 +400,7 @@ platform_pre_upgrade() {
 
 		fw_setenv boot_select 0
 		if [ "$(rootfs_type)" = "tmpfs" ]; then
-			fw_setenv bootargs "console=ttyS0,115200n1 ubi.mtd=$mtdnum init=/sbin/init loglevel=8 earlycon=uart8250,mmio32,0x11002000"
+			fw_setenv bootargs "console=ttyS0,115200n8 ubi.mtd=$mtdnum init=/sbin/init loglevel=8 earlycon=uart8250,mmio32,0x11002000"
 			ubidetach -m "$mtdnum" 2>/dev/null || true
 			ubiformat "/dev/mtd$mtdnum" -y
 		fi

@@ -302,10 +302,6 @@
 					eeprom_2g_5g: eeprom@0 {
 						reg = <0x0 0x1000>;
 					};
-
-					eeprom_6g: eeprom@a0000 {
-						reg = <0xa0000 0x1000>;
-					};
 				};
 			};
 			partition@380000 {
@@ -322,6 +318,7 @@
 			partition@2980000 {
 				label = "Kernel2";
 				reg = <0x2980000 0x2400000>;
+				read-only;
 			};
 
 			partition@4d80000 {

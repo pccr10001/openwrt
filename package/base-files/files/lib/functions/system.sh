@@ -129,7 +129,7 @@ mtd_get_mac_encrypted_arcadyan_mt7986() {
 
 	part=$(find_mtd_part "$mtdname")
 	if [ -z "$part" ]; then
-		echo "mtd_get_mac_encrypted_arcadyan: partition $mtdname not found!" >&2
+		echo "mtd_get_mac_encrypted_arcadyan_mt7986: partition $mtdname not found!" >&2
 		return
 	fi
 
@@ -148,7 +148,7 @@ mtd_get_mac_encrypted_arcadyan_mt7986() {
 		dd if="$part" bs=1 count="$size" skip=$((0x6800 + 8)) 2>/dev/null | \
 			openssl aes-128-cbc -d -nopad -K "$key" -iv "$iv" > "$temp_conf"
 	else
-		echo "mtd_get_mac_encrypted_arcadyan: Neither uencrypt nor openssl was found!" >&2
+		echo "mtd_get_mac_encrypted_arcadyan_mt7986: Neither uencrypt nor openssl was found!" >&2
 		rm -rf "$temp_dir"
 		rm -f "$temp_conf"
 		return

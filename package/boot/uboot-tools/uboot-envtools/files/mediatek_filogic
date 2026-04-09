@@ -78,7 +78,7 @@ edgecore,eap111|\
 netgear,wax220|\
 zbtlink,zbt-z8102ax|\
 zbtlink,zbt-z8103ax)
-	ubootenv_add_mtd "u-boot-env" "0x0" "0x20000" "0x20000" "1"
+	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x20000" "0x20000"
 	;;
 asus,rt-ax59u)
 	ubootenv_add_uci_config "/dev/mtd0" "0x100000" "0x20000" "0x20000"
