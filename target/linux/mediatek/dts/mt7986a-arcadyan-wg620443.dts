@@ -170,29 +170,6 @@
 	status = "okay";
 };
 
-&pcie {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pcie_pins>;
-	status = "okay";
-
-	pcie@0,0 {
-		#address-cells = <3>;
-		#size-cells = <2>;
-		reg = <0x0000 0 0 0 0>;
-
-		wifi@0,0 {
-			compatible = "mediatek,mt76";
-			reg = <0x0000 0 0 0 0>;
-			nvmem-cells = <&eeprom_2g_5g>;
-			nvmem-cell-names = "eeprom";
-		};
-	};
-};
-
-&pcie_phy {
-	status = "okay";
-};
-
 &watchdog {
 	status = "okay";
 };
@@ -202,7 +179,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&wf_2g_5g_pins>;
 
-	nvmem-cells = <&eeprom_2g_5g>;
+	nvmem-cells = <&eeprom_factory_0>;
 	nvmem-cell-names = "eeprom";
 };
 
@@ -299,7 +276,7 @@
 					#address-cells = <1>;
 					#size-cells = <1>;
 
-					eeprom_2g_5g: eeprom@0 {
+					eeprom_factory_0: eeprom@0 {
 						reg = <0x0 0x1000>;
 					};
 				};
